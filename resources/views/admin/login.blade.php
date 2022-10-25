@@ -20,6 +20,9 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('template/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    
+    {{-- App\Models\User::create(['name'=>'momo', 'email'=>'momo@gmail.com', 'password'=>bcrypt('hiraimomo') ]) --}}
+
 </head>
 
 <body class="bg-gradient-primary">
