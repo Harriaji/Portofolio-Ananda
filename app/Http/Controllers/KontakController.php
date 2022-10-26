@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\jenis_kontak;
-use App\Models\kontak_;
+use App\Models\Kontak_;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class KontakController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $data = kontak_::all();
+    {   $data = Kontak_::all();
         $siswa = Siswa::all();
         return view('admin.mastercontact', compact('data','siswa'));
     }
@@ -64,7 +64,7 @@ class KontakController extends Controller
     // $file->move($tujuan_upload,$nama_file);
 
     // proses penyimpanan ke database
-    kontak_::create([
+    Kontak_::create([
         'id_siswa' => $request->id_siswa,
         'id_jenis' => $request->id_jenis,
         'desc_kontak' => $request->desc_kontak,
@@ -93,7 +93,7 @@ class KontakController extends Controller
      */
     public function edit($id)
     {
-        $data = kontak_::find($id);
+        $data = Kontak_::find($id);
         $jenis_kontak = jenis_kontak::all();
         return view('editKontak', compact('data','jenis_kontak'));
     }
@@ -123,7 +123,7 @@ class KontakController extends Controller
 
       ],$message);
 
-      $kontak = kontak_::find($id);
+      $kontak = Kontak_::find($id);
       $kontak->id_siswa = $request->id_siswa;
       $kontak->id_jenis = $request->id_jenis;
       $kontak->desc_kontak = $request->desc_kontak;
@@ -139,7 +139,7 @@ class KontakController extends Controller
      */
     public function destroy($id)
     {
-        $data = kontak_::find($id)->delete();
+        $data = Kontak_::find($id)->delete();
         return redirect('/mastercontact')->with('succes', 'Data berhasil Dihapus');
     }
 
@@ -181,7 +181,7 @@ class KontakController extends Controller
     // $file->move($tujuan_upload,$nama_file);
 
     // proses penyimpanan ke database
-    kontak_::create([
+    Kontak_::create([
         'id_siswa' => $request->id_siswa,
         'id_jenis' => $request->id_jenis,
         'desc_kontak' => $request->desc_kontak,
