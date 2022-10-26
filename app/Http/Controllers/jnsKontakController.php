@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jenis_kontak;
-use App\Models\kontak_;
+use App\Models\Kontak_;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
