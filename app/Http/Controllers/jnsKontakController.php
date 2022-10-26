@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\jenis_kontak;
+use App\Models\Jenis_kontak;
 use App\Models\kontak_;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class jnsKontakController extends Controller
      */
     public function index()
     {
-        $data = jenis_kontak::all();
+        $data = Jenis_kontak::all();
         $siswa = Siswa::all();
         return view('admin.mainJnsKontak', compact('data','siswa'));
     }
@@ -65,7 +65,7 @@ class jnsKontakController extends Controller
     // $file->move($tujuan_upload,$nama_file);
 
     // proses penyimpanan ke database
-    jenis_kontak::create([
+    Jenis_kontak::create([
         // 'id' => $request->id,
         'jns' => $request->jns,
         
@@ -93,7 +93,7 @@ class jnsKontakController extends Controller
      */
     public function edit($id)
     {
-        $data = jenis_kontak::find($id);
+        $data = Jenis_kontak::find($id);
         return view('admin.editJnsKontak', compact('data'));
     }
 
@@ -121,7 +121,7 @@ class jnsKontakController extends Controller
 
       ],$message);
 
-      $jenis = jenis_kontak::find($id);
+      $jenis = Jenis_kontak::find($id);
     //   $jenis->id = $request->id;
       $jenis->jns = $request->jns;
       $jenis->update();
@@ -136,12 +136,12 @@ class jnsKontakController extends Controller
      */
     public function destroy($id)
     {
-        $data = jenis_kontak::find($id)->delete();
+        $data = Jenis_kontak::find($id)->delete();
         return redirect('/mainJnsKontak')->with('succes', 'Data berhasil Dihapus');
     }
 
     // public function editJenis($id){
-    //     $data = jenis_kontak::find($id);
+    //     $data = Jenis_kontak::find($id);
     //     return view('admin.editJnsKontak', compact('data'));
     // }
 }
