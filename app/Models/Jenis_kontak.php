@@ -12,6 +12,6 @@ class jenis_kontak extends Model
     protected $fillable = ['jns'];
 
     public function kontak(){
-        return $this->hasMany(kontak_::class);
+        return $this->hasMany(Kontak_::class);
     }
 }

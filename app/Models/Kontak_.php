@@ -15,7 +15,7 @@ class kontak_ extends Model
         return $this->belongsTo(Siswa::class , 'id');
     }
     public function jenis (){
-        return $this->belongsTo(jenis_kontak::class , 'id_jenis');
+        return $this->belongsTo(Jenis_kontak::class , 'id_jenis');
     }
 
 }

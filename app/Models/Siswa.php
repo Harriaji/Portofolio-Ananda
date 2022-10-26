@@ -18,6 +18,6 @@ class Siswa extends Model
     }
 
     public function kontak(){
-        return $this->hasMany(kontak_::class, 'id_siswa');
+        return $this->hasMany(Kontak_::class, 'id_siswa');
     }
 }
