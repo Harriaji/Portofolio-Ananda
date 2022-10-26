@@ -95,7 +95,7 @@ class KontakController extends Controller
     {
         $data = Kontak_::find($id);
         $jenis_kontak = Jenis_kontak::all();
-        return view('editKontak', compact('data','Jenis_Kontak'));
+        return view('editKontak', compact('data','jenis_kontak'));
     }
 
     /**
