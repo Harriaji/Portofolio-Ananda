@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\jnsKontakController;
 use App\Http\Controllers\KontakController;
 use App\Http\Controllers\LoginController;
@@ -34,7 +35,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('/mastercontact', KontakController::class);
     Route::resource('/mainJnsKontak', jnsKontakController::class);
     // Route::get('/mainJnsKontak/{id}/edit', [jnsKontakController::class, 'editJenis'])->name('edit.jns');
-    Route::resource('/', AdminController::class);
+    Route::resource('/dashboard', AdminController::class);
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('/masterproject/{id}/create',[ProjectController::class, 'buat'])->name('buat.project');
     Route::get('/mastercontact/{id}/create',[KontakController::class, 'buatKontak'])->name('buat.kontak');
@@ -46,6 +47,7 @@ Route::middleware('auth')->group(function(){
 });
 //guess
 Route::middleware('guest')->group(function(){
+    Route::get('/', [HomeController::class, "home"])->name('home');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.auth');
     Route::get('/login', [LoginController::class, "index"])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.auth');
@@ -70,9 +72,15 @@ Route::get('/register', [RegisterController::class, "index"])->name('register');
 
 
 
-// Route::get('/register', function () {
-//     return view('admin.register');
-// });
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/project', function () {
+    return view('project');
+});
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 
 
