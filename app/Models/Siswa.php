@@ -14,7 +14,7 @@ class Siswa extends Model
     protected $fillable = ['nisn','nama','email','alamat','jk','foto','about'];
       
     public function project(){
-        return $this->hasMany(project_::class, 'id_siswa');
+        return $this->hasMany(Project_::class, 'id_siswa');
     }
 
     public function kontak(){
