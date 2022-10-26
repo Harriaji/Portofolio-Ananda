@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\jenis_kontak;
+use App\Models\Jenis_kontak;
 use App\Models\Kontak_;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
@@ -94,8 +94,8 @@ class KontakController extends Controller
     public function edit($id)
     {
         $data = Kontak_::find($id);
-        $jenis_kontak = jenis_kontak::all();
-        return view('editKontak', compact('data','jenis_kontak'));
+        $Jenis_Kontak = Jenis_kontak::all();
+        return view('editKontak', compact('data','Jenis_Kontak'));
     }
 
     /**
@@ -145,7 +145,7 @@ class KontakController extends Controller
 
     public function buatKontak($id){
         $siswa = Siswa::find($id);
-        $jenis_kontak = jenis_kontak::all();
+        $jenis_kontak = Jenis_kontak::all();
         return view('createKontak',compact('siswa','jenis_kontak'));
     }
     // public function editKontak($id){
