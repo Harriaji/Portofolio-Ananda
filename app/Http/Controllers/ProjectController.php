@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use File;
-use App\Models\project_;
+use App\Models\Project_;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 
@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     { 
-        $data = project_::all();
+        $data = Project_::all();
         $siswa = Siswa::all();
         return view('admin.masterproject' , compact('data','siswa'));
     }
@@ -128,7 +128,7 @@ class ProjectController extends Controller
       ],$message);
 
       if ($request->foto != ''){
-        $projek = project_::find($id);
+        $projek = Project_::find($id);
         file::delete('/template/img'.$projek->foto);
         $file = $request->file('foto');
 
@@ -147,7 +147,7 @@ class ProjectController extends Controller
         $projek->update();
         return redirect('/masterproject');
       }else {
-        $projek = project_::find($id);
+        $projek = Project_::find($id);
         $projek->id_siswa = $request->id_siswa;
         $projek->nama_project = $request->nama_project;
         $projek->tanggal = $request->tanggal;
@@ -165,7 +165,7 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        $data = project_::find($id)->delete();
+        $data = Project_::find($id)->delete();
         return redirect('/masterproject')->with('succes', 'Data berhasil');
 
     }
